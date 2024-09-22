@@ -17,7 +17,7 @@ function displayEmployeeShifts(employee) {
 
 // Task 3: Create a Function to Assign a New Shift
 function assignShift(name, day, hours) {
-    let employee = employees.find(empl => empl.name === name); // find employee in em ployees array (task 1)
+    let employee = employees.find(empl => empl.name === employeeName); // find employee in em ployees array (task 1)
     if (!employee) {
         console.log(`Employee not found`); // error message in case an employee is not found
     };
@@ -29,4 +29,15 @@ function assignShift(name, day, hours) {
         employee.shifts.push({ day: day, hours: hours });
         console.log(`New shift assigned. Employee: ${name}, Day: ${day}, Time: ${hours}`); // display message confirming new shift has been assigned and display shift details
     }; // if employee is available assign new shift to employee
+}
+
+//Task 4: Create a Function to Calculate Total Hours Worked
+function calculateTotalHours(employeeName) {
+    let employee = employees.find(empl => empl.name === employeeName); // find employee in employee array
+    if (!employee) {
+        console.log(`Employee not found`); // error message in case an employee is not found
+    }
+    let totalHours = employee.shifts.reduce((sum, hours) => sum + shift.hours, 0);
+    console.log(`${employeeName} worked ${totalHours} this week.`);
+    return totalHours; // calculate total hours and display message with details
 }
