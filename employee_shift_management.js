@@ -51,9 +51,9 @@ function listAvailableEmployees(day) {
         console.log('No employees available');
     }
     else {
+        console.log(`The following employees are available ${day}:`);
         availableEmployees.forEach(employee => console.log(employee.name)); // if there are employees available return employees names
-        console.log(`The following employees are available: ${day}`);
-    };
+    }
 }
 
 //test
