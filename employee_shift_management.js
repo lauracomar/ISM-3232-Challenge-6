@@ -41,3 +41,17 @@ function calculateTotalHours(employeeName) {
     console.log(`${employeeName} worked ${totalHours} this week.`);
     return totalHours; // calculate total hours and display message with details
 }
+
+//Task 5: Create a Function to List Employees with Free Days
+function listAvailableEmployees(day) {
+    let availableEmployees = employees.filter(employee => // filter-create new array for employees with no shifts on the day
+        !employee.shifts.some(shift => shift.day === day) //check if employees have shift on the day, returns employees with no shifts
+    );
+    if (availableEmployees.lengh === 0) { //if array is empty (lengh === 0) it means no employees are available
+        console.log('No employees available');
+    }
+    else {
+        availableEmployees.forEach(employee => console.log(employee.name)); // if there are employees available return employees names
+        console.log(`The following employees are available: ${day}`);
+    };
+}
